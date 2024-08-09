@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1921778862002515"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-1921778862002515">
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="shortcut icon" href="https://i.postimg.cc/fyPLD8tj/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='a_style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    *{
+    margin: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    border: border-box;
+    color: white;
+    
+}
+
+nav {
+    height: 60px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.my-logo{
+    height: 50px;
+    width: 100px;
+    
+}
+.logo{
+    height: 40px;
+    width: 100px;
+    background-image:url("https://i.postimg.cc/28mmBRmb/amazon-logo.png") ;
+    background-size: cover;
+}
+.border{
+    border: 2px solid transparent;
+}
+.border:hover{
+     border: 2px solid white;
+}
+
+.add-nav{
+    width: 90px;
+    height: 50px;
+}
+/* add box. */
+.add-nav{
+    color: white;
+}
+
+.add-first{
+    color: #cccccc;
+    font-size: 0.85rem;
+
+}
+.add-sec{
+    color: #ffffff;
+    font-size: 1rem;
+    margin-left: 3px;
+}
+.ind{
+    display: flex;
+}
+/* secrch */
+.nav-search{
+    width: 650px;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    border-radius: 4px;
+    justify-content: space-evenly;
+    
+}
+#sele{
+    color: black;
+    background-color: #f3f3f3;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.inp{
+    width: 100%;
+    font-size: 1rem;
+
+}
+.sch-icon{
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background-color:rgb(243, 169, 31) ;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.hov:hover{
+    border:2px solid rgb(243, 169, 31)  ;
+}
+.sign{
+    font-weight: 5px;
+    margin-left: 35px;
+}
+span{
+    font-size: .85rem;
+}
+.txt2{
+    font-weight: 7px;
+    
+}
+.cart i {
+    font-size: 30px;
+}
+.cart{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+i{
+    color: gray;
+    display: inline;
+    font-weight: 500;
+}
+.pan{
+    background-color: #0f1111;
+    height: 40px;
+    display: flex;
+}
+.ops p{
+    display: inline;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: .9rem;
+    padding: 20px;
+    margin-left: 15px;
+}
+.ops{
+    width: 70%;
+    font-size: .85rem;
+}
+.deals{
+    display: flex;
+    justify-items: center;
+}
+.hero{
+    background-image: url('https://m.media-amazon.com/images/I/61WSHXI4MjL._SX1500_.jpg');
+    background-size: cover;
+    height: 400px;
+    font-size: .85rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.hero p{
+    color: black;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero a{
+    color: #007185;
+}
+.msg{
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+/* shopping */
+.shoping{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px ,250px));
+    justify-content: space-evenly;
+    background-color: #e3e3e3;
+
+    
+}
+.box{
+    margin-top: 40px;
+    height: 450px;
+    width: 250px;
+    background-color: white;
+    color: black;
+}
+.img{
+    height:300px ;
+    background-size: cover;
+    margin: 1rem;
+}
+.box h2{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.box a{
+    margin-left: 1rem;
+    color: blue;
+    text-decoration: none;
+}
+.panel1 {
+    height: 50px;
+    background-color: #37475a;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.panel2{
+    background-color: #222f3d;
+    height: 400px;
+    display: flex;
+    justify-content: space-evenly;
+}
+ul{
+    margin-top: 20px;
+}
+ul a{
+    display: block;
+    font-size: .85rem;
+    margin-top: 10px;
+    color: #dddddd;
+    text-decoration: none;
+}
+.panel3 {
+    background-color: #222f3d;
+    height: 70px;
+    color: white;
+    border-top: .5px white solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo2{
+    height: 40px;
+    width: 100px;
+    background-image:url("https://i.postimg.cc/28mmBRmb/amazon-logo.png") ;
+    background-size: cover;
+}
+.panel4{
+    background-color: #0f1111;
+    height: 80px;
+    font-size: .7rem;
+}
+.copy{
+    text-align: center;
+}
+.pages{
+    
+    text-align: center;
+    padding-top: 25px ;
+}
+.box:hover{
+    margin: 2px;
+    background-color: rgb(243, 169, 31);
+}
+.box a:hover{
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<header>
+    <nav class="nav-bar">
+        <div class="my-logo border">
+            <div class="logo"></div>
+        </div>
+
+        <div class="add-nav border">
+            <p class="add-first">Deliver to</p>
+            <div class="ind">
+                <i class="fa-solid fa-location-dot"></i>                        
+                <p class="add-sec">India</p>
+            </div>
+        </div>
+        <div class="nav-search hov">
+            <select  id="sele">
+                <option>All</option>
+                <option value="">h i</option>
+            </select>
+            <input type="text" class="inp" placeholder="Search Amazon">
+            <div class="sch-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div class="sign border">
+            <p><span>Hello, Sign in</span></p>
+            <p class="txt2"> Account & order</p>
+
+        </div>
+        <div class="return border">
+            <p><span>Return</span></p>
+            <p class="txt2">& Orders</p>
+        </div>
+        <div class="cart">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <a href="{{ url_for('next')}}"></a>
+        </div>
+    </nav>
+        <div class="pan">
+            <div class="pan-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="ops border">
+                <p>Today's Deals</p>
+                <p>Customer Service</p>
+                <p>Registry</p>
+                <p>Gift Cards</p>
+                <p>Sell</p>
+            </div>
+            <div class="deals border">
+                Shop deals in Electronic
+            </div>
+        </div>
+
+</header>
+    <div class="hero">
+        <div class="msg">
+            <p class="hi">You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="">Click here to go to amazon.in</a></p>
+        </div>
+    </div>
+<!-- shaping -->
+    <div class="shop">
+        <div class="shoping" id="top">
+            <div class="box b1">
+                <h2 style="color: black;">Deals in pc's</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v1._SY304_CB573698005_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Toys under $25</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v3._SY304_CB573698005_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Lunar New Year</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/LunarNY/Fuji_Single_card_Lunar_New_Year_Graphics_1x_EN._SY304_CB585956471_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Top Deal</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/US-hq/2023/img/Consumer_Electronics/XCM_CUTTLE_1555947_2997386_379x304_1X_en_US._SY304_CB594429819_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Warm & welcoming decor</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/US-hq/2023/img/Consumer_Electronics/XCM_CUTTLE_1546843_2940864_379x304_1X_en_US._SY304_CB613273467_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Shop activity trackers and smartwatches</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/us-manual-merchandising/RBS-in-house-Graphics/cc_359_laptop_us_v1._SY304_CB576754001_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;">Upgrade your office furniture</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/US-hq/2023/img/Consumer_Electronics/XCM_CUTTLE_1622892_3373436_379x304_1X_en_US._SY304_CB597161294_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+            <div class="box b1">
+                <h2 style="color: black;"> Fashion Deals on shoes shop now</h2>
+                <div class="img" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_SmartWatch_1X._SY304_CB639922137_.jpg');"></div>
+                <a href="{{ url_for('next')}}" >Shop now</a>
+            </div>
+        </div>
+    <footer>
+        <div class="panel1">
+            <a href="#top">Back to top</a>
+        </div>
+        <div class="panel2">
+            <ul>
+                <p>Get to Know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Amazon</a>
+                <a>Investor Relations</a>
+                <a>Amazon Devices</a>
+                <a>Amazon Science</a>
+            </ul>
+            <ul>
+                <p>Make Money with Us</p>
+                <a href="">Sell products on Amazon</a>
+                <a href="">Sell on Amazon Business</a>
+                <a href="">Sell apps on Amazon</a>
+                <a href="">Become an Affiliate</a>
+                <a href="">Advertise Your Products</a>
+                <a href="">Self-Publish with Us</a>
+                <a href="">Host an Amazon Hub</a>
+                <a href="">›See More Make Money with Us</a>
+            </ul>
+            <ul>
+                <p>	 Amazon Payment Products </p>
+                <a href="">Amazon Business Card</a>
+                <a href="">Shop with Points</a>
+                <a href="">Reload Your Balance</a>
+                <a href="">Amazon Currency Converter</a>
+            </ul>
+            <ul>
+                <p>	 Amazon Payment Products </p>
+                <a href="">Amazon Business Card</a>
+                <a href="">Shop with Points</a>
+                <a href="">Reload Your Balance</a>
+                <a href="">Amazon Currency Converter</a>
+            </ul>
+        </div>
+        <div class="panel3">
+            <div class="logo2"></div>
+        </div>
+        <div class="panel4">
+            <div class="pages">
+                <a href="">Conditions of Use </a>
+                <a href="">Privacy Notice</a>
+                <a href="">Your Ads Privacy Choices</a>
+            </div>
+            <div class="copy">
+                © 1996-2024, Amazon.com, Inc. or its affiliates
+            </div>
+         </div>
+    </footer>
+</body>
+</html>

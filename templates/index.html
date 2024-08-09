@@ -1,0 +1,744 @@
+{% extends "base.html" %}
+
+{% block head %}
+<head>
+  <!-- ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1921778862002515"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-1921778862002515">
+     
+     <link rel="shortcut icon" href="{{ url_for('static', filename='header_logo.png') }}"
+     type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<!-- contact -->
+<style>
+  
+  .contact{
+        padding-top: 2%;
+        text-align: center;
+    }
+    .contact-info{
+        font-size: 20px;
+    }
+    .soc-1{
+        display: flex;
+        justify-content: center;
+    }
+    .social{
+        
+        margin: 0 20px;
+        gap: 2%;
+        font-size: 30px !important;
+    }
+    #insta{
+        color: rgb(208, 66, 252);
+    }
+    .fa-whatsapp{
+        color: greenyellow;
+    }
+    .fa-linkedin{
+        color: blue;
+    }
+    .fa-github{
+        color: #333;
+    }
+    .social i:hover, .social i:active{
+        animation: scaleAnimation 0.5s ease-in-out;
+    }
+
+    
+    @keyframes scaleAnimation {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+</style>
+
+<!-- next  -->
+ <style>
+  /* button */
+*{
+  transition: all 0.5s !important;
+}
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+ /*====== nav bar======  */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  nav{
+    /* height: 100px; */
+    position: sticky;
+  }
+
+
+  img{
+      position: absolute;
+      box-shadow: 2px 2px 10px rgba(78, 77, 77, 0.144) ;
+      border-bottom-right-radius: 11rem;
+      background-color: #ade8f4 ;
+      top: -50px;
+      left: -50px;
+      width: 20%;
+      padding: 0;
+  }
+  .img{
+      display: flex;
+      justify-content: center;
+  }
+  .nav-left{ 
+      gap: 5px;
+  }
+  nav ul{
+    box-shadow: 2px 2px 20px  rgb(22, 21, 21)  ;
+    
+background: rgb(191,240,152);
+background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(33,77,230,0.33657212885154064) 56%, rgba(111,214,255,0.47102591036414565) 100%);
+    transition: all 2s ease-in-out;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: end;
+  
+    align-items: center;
+    text-align: center;
+  }
+  
+  nav .laptop {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin: 0 !important;
+  }
+  ul li{
+    
+    padding: 2px 0;
+    height: 60px;
+    transition: all 0.5s ease-in;
+    background-color: transparent;
+  }
+  nav a{
+    transition: all 0.5s ease-in;
+    text-decoration: none;
+    padding: 0px 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: rgb(24, 23, 23);
+  }
+  
+  nav a:hover{
+    color: black;
+
+  }
+  
+  .xmark:hover{
+    box-shadow: -5px 2px 5px rgb(180, 179, 179) ;
+    background-color: red;
+    border-radius: 2rem;
+    color:rgb(241, 234, 234);
+  }
+  .manu:hover{
+    box-shadow: 2px 2px 10px rgba(78, 77, 77, 0.144) ;
+    background-color: rgba(7, 105, 253, 0.363);
+    border-radius: .5rem;
+    color:rgb(20, 20, 20);
+  }
+  nav ul li:hover,.save:hover{
+    box-shadow: 2px 2px 10px rgb(12, 48, 42) ;
+    background-color: #caf0f8;
+    color:rgb(20, 20, 20);
+    border-radius: 1rem;
+  }
+  
+  nav ul li:active , .save:active{
+    box-shadow: 5px 5px 5px rgb(56, 55, 55) ;
+    background-color: rgb(20, 20, 20);
+  }
+  .sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 0;
+    background-color: rgba(255, 255, 255, 0.068);
+    backdrop-filter: blur(20px);
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.226);
+    display: none;
+    flex-direction: column;
+    justify-content:  flex-start;
+    align-items: flex-end;
+    
+  }
+  .sidebar li{
+    width: 100%;
+  }
+  .manu{
+    display: none;
+  }
+  .sidebar a{
+    width: 100%;
+    color: white;
+
+  }
+
+  @media (max-width: 680px) {
+  img {
+    top: 10px;
+    left: 10px;
+    box-shadow: 2px 2px 10px rgba(78, 77, 77, 0.144);
+  }
+  
+}
+  @media(max-width:850px)  {
+    .hideOnmobile{
+        display: none;
+        
+    }
+    .input label{
+      font-size: 20px;
+    }
+    button span{
+      font-size:10px ;
+      font: xx-small ;
+      width: 100px;
+    }
+
+    ul li{
+       height: 40px; 
+    }
+    .laptop{
+        justify-content: end !important;
+    }
+    .manu{
+        color:white;
+        border: 1px solid rgb(192, 180, 180) ;
+        display: block;
+        align-items: end ;
+        border-radius: 2rem; 
+        float: right ;
+    }
+    li{
+        font-size: small;
+    }
+    
+  }
+  @media(max-width:400px){
+    .sidebar{
+        font: 200px;
+        width: 100%;
+        color: white;
+    }
+  }
+  
+  /* new navbar */
+  /* form  */
+  .input-group {
+  position: relative;
+  }
+
+.input {
+ border: solid 1.5px #9e9e9e;
+ border-radius: 1rem;
+ background: none;
+ padding: 1rem;
+ font-size: 1rem;
+ color: #f5f5f5;
+ transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.user-label {
+ position: absolute;
+ left: 15px;
+ color: #e8e8e8;
+ pointer-events: none;
+ transform: translateY(1rem);
+ transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, input:valid {
+ outline: none;
+ border: 1.5px solid #1a73e8;
+}
+
+.input:focus ~ label, input:valid ~ label {
+ transform: translateY(-50%) scale(0.8);
+ background-color: #65c9e7;
+ border-radius: 2rem;
+ padding: 0 .2em;
+ color: #000000;
+}
+ /*====== own =============== */
+
+     .navbar{
+         padding: 2%;
+
+        
+     }
+     ul{
+      justify-content: space-between;
+      width: 80%;
+
+     }
+     .content{
+      text-align: center;background: rgb(46,49,146);
+      background: linear-gradient(81deg, rgba(46,49,146,0.5662640056022409) 0%, rgba(33,230,217,1) 51%, rgba(27,255,255,1) 100%);
+      /* position: fixed; */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 2% 2%;
+        }
+        .btnn{
+          height: 60px  ;
+      box-shadow: 2px 2px 10px rgb(191, 196, 223);
+        width: 9.6rem;
+
+        }
+        .p1{
+          padding-top: 2%;
+        }
+    form{
+       display: flex;
+       justify-content: space-around;
+       padding: 0 10%;
+       gap: 10px;
+       width: 80%;
+     }
+     .form{
+      width: 100%;
+      height: 100%;
+     }
+     form div{
+      padding: 0;
+      width: 100%;
+     }
+     .input{
+      box-shadow: 2px 2px 5px rgb(20, 20, 20);
+      border-radius: 2rem !important;
+      width: 100%;
+      color: black;
+      font-weight: bold ;
+     }
+     .user-label{
+      font-size: large;
+       color: black;
+      }
+      .user-label:focus{
+       height: 2vh;
+       font: x-small;
+       font-weight: bold;
+      color: black;
+    }
+
+      .btnn span{
+        font-size: 20px;
+      }
+
+    @media (max-width: 768px) {
+      
+      
+      ul {
+        width: 50%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0%;
+      }
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+    }
+    footer p{
+        text-align: center;
+}
+
+.link-primary{
+  text-decoration: none;
+  color: white !important;
+  font-size: 30px !important;
+  font-size: larger;
+  padding: 10px;
+}
+@media (max-width: 580px) {
+  
+      /* Navbar */
+      .laptop {
+        display: none;
+      }
+      .link-primary{
+        text-decoration: none;
+      color: white;
+
+  font-size: 20px !important;
+  padding: 5px;
+}
+      
+
+      /* Logo */
+
+      /* Button */
+      .btnn {
+        width: 8rem ;
+        height: 40px;
+      }
+      /* Form */
+      form {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      .form {
+        width: 100%;
+      }
+      .input-group{
+        padding: 10px;
+        width: 90%;
+      }
+     .input-group label{
+        font-size: 15px;
+      }
+      /* Input */
+      .input {
+
+        border-radius: 2rem !important;
+        height: 35px ;
+        width: 100%;
+        color: black;
+        font-weight:lighter ;
+      }
+
+      .user-label {
+        font-size: large;
+        color: black;
+      }
+
+      .user-label:focus {
+        height: 2vh;
+        font: x-small;
+        font-weight: bold;
+        color: black;
+      }
+
+      /* Data */
+      .c-data {
+        height: auto;
+      }
+
+      textarea {
+        width: 80%;
+        height: 80%;
+      }
+
+      /* Buttons */
+      .buttons {
+        flex-direction: column;
+        gap: 2%;
+        padding: 2%;
+        font-size: 10px;
+      }
+
+      /* Message */
+      .message {
+        top: 20;
+        right: 10vw;
+        width: 80%;
+      }
+    }
+   /* spiner  */
+   .sppiner{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 34%;
+    width: 20%;
+    height: 20%;
+   }
+   
+   /* ======data ====== */
+    
+    .c-data{
+      display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+    textarea{
+        font: 300;
+        width: 70%;
+        height: 60%;
+        font-size: 15px;
+        padding: 2%;
+      box-shadow: 2px 2px 20px black;
+
+        border-radius: 2rem;
+        scrollbar-width: thin;
+        scroll-behavior: smooth;
+    }
+    .buttons{
+        display: flex;
+        gap: 2%;
+        padding: 2%;
+        flex-direction: row;
+        font-size: 10px;
+        /* height: 45px; */
+    }
+    @media (max-width: 680px) {
+      
+    .buttons{
+        display: flex;
+        gap: 2%;
+        padding: 2%;
+        flex-direction: row;
+        font-size: 10px;
+        /* height: 45px; */
+    }
+    .user-label{
+      font-size: 18px;
+    }
+    .input{
+      height: 45px;
+    }
+        textarea{
+            width: 80%;
+            height: 80%;
+        }
+    }
+
+/* alireat  */
+.message {
+  display: none;
+  position: fixed;
+  top: 20;
+  right: 34vw;
+  width: 30%;
+  z-index: 1000;
+}
+ </style>
+</head>
+{% endblock %}
+{% block content %}
+
+
+  <div class="alert alert-success message" role="alert">
+       no data
+    </div>
+    <div class="spinner-grow sppiner text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+    <div class="spinner-border sppiner2 sppiner text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+<nav>  
+  <!-- laptop -->
+  <ul class="laptop">
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('home') }}">Home</a></li>
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('amazon') }}">Amazon</a></li>
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('claculator')}}">claculator</a></li>
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('gemini')}}">gemini </a></li>
+      <li class="manu"><a onclick="showSidebar()"><i class="fa-solid fa-bars fa-xl"></i></a></li>
+    </ul>
+    
+    <!--  moblie-->
+    <ul class="sidebar">
+      <li class="xmark" onclick="hidesidebar()"><a href=""><i class="fa-solid fa-xmark fa-xl"></i>`</a></li>
+      <li><a href="">Logo </a></li>
+  <li><a href="{{ url_for('home') }}">Home</a></li>
+  <li><a href="{{ url_for('amazon') }}">Amazon</a></li>
+  <li><a href="{{ url_for('portfolio') }}">portfolio</a></li>
+  <li><a href="{{ url_for('claculator')}}">Conclaculat</a></li>
+  <li><a href="{{ url_for('gemini')}}">Genimi chat</a></li>
+</ul>
+</nav>
+<div class="img">
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="logo">
+</div>
+<!-- container -->
+
+
+
+<div class="content">
+
+  <h1>Code pad</h1>
+  {% if not data %}
+  <h3>Save notes instantly, anywhere. No logs, no accounts.</h3> 
+  <p class="p1">Let's try. Enter a new or used code now to open, encrypt and save notes with.</p>
+  
+  <form class="p-form" action="/notes" method="POST" >
+    
+    <div class="input-group">
+      <input required="hi" type="text"  name="password" class="input">
+        <label class="user-label">Type some code to save..</label>
+    </div>
+    <button class="btnn" type="submit" >
+      <div class="svg-wrapper-1">
+        <div class="svg-wrapper">
+          <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          >
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path
+          fill="currentColor"
+          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+          ></path>
+          </svg>
+        </div>
+      </div>
+      <span>Open</span>
+    </button>
+  </form>
+    
+  <p >It's that simple!</p>
+  <i >  For example, you can use whati'mhavingfordinnertonight33344456</i>
+  
+  .
+  {% else %}
+  {% if data['data'] %}
+  
+  <form class="c-data" action="/save" method="post">
+    <textarea name="data" class="data" required id="data" autofocus placeholder="Enter notes.." >{{ data['data'] }}</textarea>
+    <div class="buttons">
+      
+      <a href="/"  class="save link-primary">close</a>
+      <button type="submit" class="save" >Save</button>
+      
+    </div>
+  </form>
+{% else %}
+  <form class="c-data" action="/save" method="post">
+    <textarea name="data" class="data" required id="data" autofocus placeholder="Enter notes.." ></textarea>
+    <div class="buttons">
+      
+      <a href="/" class="save link-primary">close</a>
+      <button type="submit" class="save"  >Save</button>
+      
+    </div>
+  </form>
+{% endif %}
+  
+  
+  <!-- data -->
+  
+  {% endif %}
+  
+  
+  
+  <div class="contact" >
+    <h6  class="s-h">CONTACT </h6>
+    <div class="soc-1">
+      <div class="social">
+        <a href="https://www.instagram.com/nithinms2005?igsh=NDhrdGE2OXFjcmZy"><i id="insta"  class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div class="social">
+              <a href="https://wa.link/4mmjb3"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <div class="social" >
+              <a href="https://www.linkedin.com/in/nithin-ms-365958256/"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+          <div class="social">
+              <a href="https://www.github.com/Nithin3003"><i class="fa-brands fa-github"></i></a>
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <footer>
+    <p>&copy; 2024 Code pad</p>
+    <p> Terms amd comditions apply.</p>
+    
+  </footer>
+</div>
+</div>  
+<script>
+  function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'flex' 
+ }
+ function hideSidebar(){
+    const sidebar = document.querySelectora(".sidebar")
+    sidebar.style.display = 'none' 
+ }
+</script>
+
+{% endblock %}
