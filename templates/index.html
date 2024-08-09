@@ -357,6 +357,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
           justify-content: center;
           align-items: center;
           padding: 2% 2%;
+          height:100vh;
         }
         .btnn{
           height: 60px  ;
@@ -608,7 +609,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
       <li class="hideOnmobile big-bar"><a href="{{ url_for('home') }}">Home</a></li>
       <li class="hideOnmobile big-bar"><a href="{{ url_for('amazon') }}">Amazon</a></li>
       <li class="hideOnmobile big-bar"><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
-      <li class="hideOnmobile big-bar"><a href="{{ url_for('claculator')}}">claculator</a></li>
+      <li class="hideOnmobile big-bar"><a href="{{ url_for('calculator')}}">calculator</a></li>
       <li class="hideOnmobile big-bar"><a href="{{ url_for('gemini')}}">gemini </a></li>
       <li class="manu"><a onclick="showSidebar()"><i class="fa-solid fa-bars fa-xl"></i></a></li>
     </ul>
@@ -620,7 +621,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
   <li><a href="{{ url_for('home') }}">Home</a></li>
   <li><a href="{{ url_for('amazon') }}">Amazon</a></li>
   <li><a href="{{ url_for('portfolio') }}">portfolio</a></li>
-  <li><a href="{{ url_for('claculator')}}">Conclaculat</a></li>
+  <li><a href="{{ url_for('calculator')}}">calculator</a></li>
   <li><a href="{{ url_for('gemini')}}">Genimi chat</a></li>
 </ul>
 </nav>
@@ -739,6 +740,19 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
     const sidebar = document.querySelectora(".sidebar")
     sidebar.style.display = 'none' 
  }
+ document.addEventListener('DOMContentLoaded', () => {
+  
+  document.querySelector('.save').addEventListener('click', () => {
+    var message = document.querySelector('.message');
+    message.style.display = 'block';
+    message.innerHTML = 'Saved succesfully';
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 2000);
+    window.location.href = '/';
+  });
+});
+
 </script>
 
 {% endblock %}

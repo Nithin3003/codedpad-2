@@ -58,7 +58,7 @@ def save_data():
                 update= coded.find_one_and_update({'Time': curr_date() ,'password' :session['user_password']}, { '$set':{ 'data': value }}) #session['user_password'] = None
                 return redirect('/')
             except Exception as e:
-                return e
+                return "<h1>Internal Server Error</h1>"
                 
     
         else:#new data / password 
@@ -66,7 +66,7 @@ def save_data():
                 insert= coded.insert_one({'Time': curr_date(),'password' :session['user_password'],'data': value  } )
                 return redirect('/')
             except Exception as e:
-                return e
+                return "<h1>Internal Server Error</h1>"
             # store_password.clear
             # session['user_password'] = None
 
@@ -128,21 +128,21 @@ def portfolio():
 def next():
     return render_template('nextpage.html')
 
-@app.route('/claculator')
-def claculator():
-    return render_template('claculator.html')
+@app.route('/calculator')
+def calculator():
+    return render_template('calculator.html')
 
-# @app.errorhandler(404)  
-# def not_found(e):  
-#   return "<h1>Page not found 404 error</h1>" 
+@app.errorhandler(404)  
+def not_found(e):  
+  return "<h1>Page not found 404 error</h1>" 
 
-# @app.errorhandler(500)
-# def internal_server_error(e):
-#     return "<h1>Internal Server Error</h1>", 500
+@app.errorhandler(500)
+def internal_server_error(e):
+    return "<h1>Internal Server Error</h1>", 500
 
-# @app.errorhandler(Exception)
-# def handle_error(e):
-#     return f"<h1>Internal Server Error</h1> {{Exception }}", 500
+@app.errorhandler(Exception)
+def handle_error(e):
+    return f"<h1>Internal Server Error</h1>", 500
 
 
 
