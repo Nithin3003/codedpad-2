@@ -109,7 +109,7 @@ def amazon():
 
 @app.route('/ads.txt')
 def ads():
-    return render_template('ads.txt')
+    return send_from_directory("static", "ads.txt")
 
 
 
