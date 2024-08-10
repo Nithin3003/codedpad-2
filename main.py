@@ -86,7 +86,6 @@ def chat():
             a= request.form['prompt']
             if a!=' ':
                 genai.configure(api_key='AIzaSyCAbWJC8mopXlEHlH6CSPcTK1X1iTbkFW4')
-                model = genai.GenerativeModel('gemini-1.5-flash')
                 response = genai.generate_text(
                                                 prompt=a,
                                                 model="gemini-1.5-flash"  # Replace with the desired model
