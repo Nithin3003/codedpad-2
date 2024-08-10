@@ -98,7 +98,7 @@ def generate_text(prompt):
             response = chat.send_message(prompt)
             return response.text
 
-        return get_chat_response(chat, prompt).replace('**', '')
+        return get_chat_response(chat, prompt)
 
     except Exception as e:
         print(f"An error occurred: {e}")

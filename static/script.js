@@ -31,8 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
       var message = document.querySelector('.message');
       message.style.display = 'block';
       message.innerHTML = 'Loading...';
-      setTimeout(() => {
-        message.style.display = 'none';
-      }, 2000);
     });
   });
