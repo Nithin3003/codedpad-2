@@ -77,24 +77,24 @@ def save_data():
 def gemini():
     return render_template('gemini.html')
 
-
+def generate_text(prompt):
+    try:
+        genai.configure(api_key="AIzaSyCAbWJC8mopXlEHlH6CSPcTK1X1iTbkFW4") 
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        response = model.generate_content(prompt)
+        print(response.text)
+        return response.text.replace('*', '')  # Remove asterisks directly
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return "Error generating text"
 
 @app.route('/chat',methods=['POST','GET'])
 def chat():
     if request.method == 'POST':
         try:
             a= request.form['prompt']
-            if a!=' ':
-                genai.configure(api_key='AIzaSyCAbWJC8mopXlEHlH6CSPcTK1X1iTbkFW4')
-                response = genai.generate_text(
-                                                prompt=a,
-                                                model="gemini-1.5-flash"  # Replace with the desired model
-                                            )
-                text=''
-                for chunk in response.text:
-                    text +=chunk.text.replace('**','')
-                return render_template('gemini.html',use=text.replace('*',''))
-            return render_template('gemini.html', use='Enter prompt u foul..')
+            text= generate_text(a)
+            return render_template('gemini.html', use=text)
         except  Exception as e:
             return render_template('gemini.html', use=e)
             
