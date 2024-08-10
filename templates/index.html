@@ -498,8 +498,8 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
       }
 
       textarea {
-        width: 80%;
-        height: 80%;
+        width: 70%;
+        height: 70%;
       }
 
       /* Buttons */
@@ -540,8 +540,8 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
     textarea{
       background: white;
         font: 300;
-        width: 100vh;
-        height: 100vh;
+        width: 80%;
+        height: 70%;
         font-size: 15px;
         padding: 2%;
       box-shadow: 2px 2px 20px black;
@@ -675,7 +675,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
   {% if data['data'] %}
   
   <form class="c-data" action="/save" method="post">
-    <textarea name="data" class="data" required id="data" autofocus placeholder="Enter notes.." >{{ data['data'] }}</textarea>
+    <textarea name="data" class="data" required id="data"  placeholder="Enter notes.." >{{ data['data'] }}</textarea>
     <div class="buttons">
       
       <a href="/"  class=" link-primary">close</a>
@@ -685,7 +685,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
   </form>
 {% else %}
   <form class="c-data" action="/save" method="post">
-    <textarea name="data" class="data" required id="data" autofocus placeholder="Enter notes.." ></textarea>
+    <textarea name="data" class="data" required id="data" placeholder="Enter notes.." ></textarea>
     <div class="buttons">
       
       <a href="/" class=" link-primary">close</a>
