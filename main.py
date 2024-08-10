@@ -57,7 +57,7 @@ def save_data():
                 update= coded.find_one_and_update({'password' :session['user_password']}, { '$set':{ 'data': value }}) #session['user_password'] = None
                 return redirect('/')
             except Exception as e:
-                return "<h1>Internal Server Error</h1>"
+                return e+'1'
                 
     
         else:#new data / password 
@@ -65,7 +65,7 @@ def save_data():
                 insert= coded.insert_one({'password' :session['user_password'],'data': value  } )
                 return redirect('/')
             except Exception as e:
-                return "<h1>Internal Server Error</h1>"
+                return e+'2'
             # store_password.clear
             # session['user_password'] = None
 
