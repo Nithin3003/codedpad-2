@@ -4,7 +4,6 @@ from flask import Flask,redirect,url_for,render_template,request,session
 from secrets import token_urlsafe
 import os
 import google.generativeai as genai
-from pytz import timezone 
 from datetime import datetime
 
 
@@ -24,8 +23,8 @@ def check_password(password):
 
 
 def curr_date():
-    date = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
-    return str(date)[:-10] if date else ""
+    date = datetime.now()
+    return date if date else ""
 
 
 def check_newdata():
