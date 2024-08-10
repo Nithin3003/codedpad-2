@@ -48,6 +48,7 @@ def display_data():
             result = check_password()
             return render_template('index.html', data=result if result else 'no data') #error if no data use only render index.html 
         except Exception as e:
+            print(f'Notes {{e}}')
             return f"<h1>Internal Server Error</h1>"+e    
     return 'get method'
 
@@ -151,17 +152,20 @@ def next():
 def calculator():
     return render_template('calculator.html')
 
-# @app.errorhandler(404)  
-# def not_found(e):  
-#   return "<h1>Page not found 404 error</h1>" 
+@app.errorhandler(404)  
+def not_found(e):  
+    print(e)
+    return "<h1>Page not found 404 error</h1>" 
 
-# @app.errorhandler(500)
-# def internal_server_error(e):
-#     return "<h1>Internal Server Error</h1>", 500
+@app.errorhandler(500)
+def internal_server_error(e):
+    print(e)
+    return "<h1>Internal Server Error</h1>", 500
 
-# @app.errorhandler(Exception)
-# def handle_error(e):
-#     return f"<h1>Internal Server Error</h1>", 500
+@app.errorhandler(Exception)
+def handle_error(e):
+    print(e)
+    return f"<h1>Internal Server Error</h1>", 500
 
 
 
