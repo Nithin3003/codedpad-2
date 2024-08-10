@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gemini</title>
     
+<script src="{{ url_for('static', filename='script.js') }}"></script>
     
     <link rel="shortcut icon" href="https://www.gstatic.com/lamda/images/gemini_sparkle_red_4ed1cbfcbc6c9e84c31b987da73fc4168aec8445.svg"
         type="image/x-icon">
@@ -150,13 +151,11 @@
   z-index: 1000;
 }
     </style>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </head>
 
 <body>
     <div class="alert alert-success message" role="alert">
-        no data
      </div>
     {% block content %}
     <header>

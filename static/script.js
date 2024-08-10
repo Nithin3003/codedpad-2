@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
   document.addEventListener('DOMContentLoaded', () => {
   
     document.querySelector('.btngpt').addEventListener('click', () => {

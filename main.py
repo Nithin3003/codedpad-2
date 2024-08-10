@@ -54,7 +54,7 @@ def save_data():
         old_data  =check_newdata()
         if old_data and old_data != value:
             try:
-                update= coded.find_one_and_update({'Time': curr_date() ,'password' :session['user_password']}, { '$set':{ 'data': value }}) #session['user_password'] = None
+                update= coded.find_one_and_update({'password' :session['user_password']}, { '$set':{ 'data': value }}) #session['user_password'] = None
                 return redirect('/')
             except Exception as e:
                 return "<h1>Internal Server Error</h1>"
@@ -62,7 +62,7 @@ def save_data():
     
         else:#new data / password 
             try:
-                insert= coded.insert_one({'Time': curr_date(),'password' :session['user_password'],'data': value  } )
+                insert= coded.insert_one({'password' :session['user_password'],'data': value  } )
                 return redirect('/')
             except Exception as e:
                 return "<h1>Internal Server Error</h1>"
@@ -84,12 +84,15 @@ def chat():
     if request.method == 'POST':
         try:
             a= request.form['prompt']
-            if a!='':
+            if a!=' ':
                 genai.configure(api_key='AIzaSyCAbWJC8mopXlEHlH6CSPcTK1X1iTbkFW4')
                 model = genai.GenerativeModel('gemini-1.5-flash')
-                response = model.generate_content(a, stream=True)
+                response = genai.generate_text(
+                                                prompt=a,
+                                                model="gemini-1.5-flash"  # Replace with the desired model
+                                            )
                 text=''
-                for chunk in response:
+                for chunk in response.text:
                     text +=chunk.text.replace('**','')
                 return render_template('gemini.html',use=text.replace('*',''))
             return render_template('gemini.html', use='Enter prompt u foul..')
@@ -100,7 +103,7 @@ def chat():
 
 
 
-@app.route('/amazonclone/')
+@app.route('/amazonclone')
 def amazon():
     return render_template('amazon.html')
 
@@ -131,17 +134,17 @@ def next():
 def calculator():
     return render_template('calculator.html')
 
-@app.errorhandler(404)  
-def not_found(e):  
-  return "<h1>Page not found 404 error</h1>" 
+# @app.errorhandler(404)  
+# def not_found(e):  
+#   return "<h1>Page not found 404 error</h1>" 
 
-@app.errorhandler(500)
-def internal_server_error(e):
-    return "<h1>Internal Server Error</h1>", 500
+# @app.errorhandler(500)
+# def internal_server_error(e):
+#     return "<h1>Internal Server Error</h1>", 500
 
-@app.errorhandler(Exception)
-def handle_error(e):
-    return f"<h1>Internal Server Error</h1>", 500
+# @app.errorhandler(Exception)
+# def handle_error(e):
+#     return f"<h1>Internal Server Error</h1>", 500
 
 
 
