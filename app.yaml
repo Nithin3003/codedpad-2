@@ -1,6 +1,5 @@
 runtime: python311
 service: codedpad-2
-module: www
 
 handlers:
 
