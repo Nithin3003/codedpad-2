@@ -1,12 +1,13 @@
 from flask_pymongo import PyMongo
-from flask import Flask,redirect,url_for,render_template,request,session
+from flask import Flask,redirect,url_for,render_template,request,session,jsonify
 # from werkzeug.security import generate_password_hash, check_password_hash
 from secrets import token_urlsafe
 import os
 # import google.generativeai as genai
 from datetime import datetime
 import vertexai
-from vertexai.preview.generative_models import GenerativeModel, ChatSession
+from vertexai.generative_models import GenerativeModel, Part
+
 
 
 
@@ -88,21 +89,21 @@ def save_data():
 def gemini():
     return render_template('gemini.html')
 
-def generate_text(prompt):
+
+
+
+
+def generates_text(prompt):
+    project_id = "affable-hall-427403-u5"   
     try:
-        project_id = "affable-hall-427403-u5"
-        location = "us-central1"
-        vertexai.init(project=project_id, location=location)
+        vertexai.init(project=project_id, location="us-central1")
 
-        model = GenerativeModel("gemini-1.0-pro")
-        chat = model.start_chat()
+        model = GenerativeModel("gemini-1.5-flash")
 
-        def get_chat_response(chat: ChatSession, prompt: str):
-            response = chat.send_message(prompt)
-            return response.text
 
-        return get_chat_response(chat, prompt)
-
+        response = model.generate_content(prompt)
+        return response.text.replace('**', '')
+        
     except Exception as e:
         print(f"An error occurred: {e}")
         return "Error generating text"
@@ -111,9 +112,12 @@ def generate_text(prompt):
 def chat():
     if request.method == 'POST':
         try:
-            a= request.form['prompt']
-            text= generate_text(a).replace('*', '')
-            return render_template('gemini.html', use=text.replace('##',''))
+            prompt= request.form['prompt']
+            # text= generate_text(a).replace('*', '')
+            # prompt = request.json['prompt']
+            generated_text = generates_text(prompt)
+
+            return render_template('gemini.html', use=generated_text.replace('##',''))
         except  Exception as e:
             return render_template('gemini.html', use=e)
             
