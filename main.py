@@ -42,15 +42,17 @@ def home():
 
 @app.route("/notes", methods=['POST'])
 def display_data():
-    if request.method == 'POST':
-        try:
-            session['user_password']= request.form['password']
-            result = check_password()
-            return render_template('index.html', data=result if result else 'no data') #error if no data use only render index.html 
-        except Exception as e:
-            print(f'Notes {{e}}')
-            return f"<h1>Internal Server Error</h1>"+e    
-    return 'get method'
+  if request.method == 'POST':
+    try:
+      session['user_password'] = request.form['password']
+      result = check_password()
+      return render_template('index.html', data=result if result else 'No data found')
+    except Exception as e:
+      # Log the error for further analysis
+      app.logger.error(f'Error in display_data: {e}')
+      return render_template('index.html', error='An error occurred. Please try again.')
+  return 'get method'
+
 
 
 @app.route('/save', methods=['POST', 'GET'] )
@@ -160,12 +162,12 @@ def not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     print(e)
-    return "<h1>Internal Server Error</h1>", 500
+    return "<h1>Internal Server Error 500</h1>", 500
 
 @app.errorhandler(Exception)
 def handle_error(e):
     print(e)
-    return f"<h1>Internal Server Error</h1>", 500
+    return f"<h1>Internal Server Error Exception</h1>", 500
 
 
 
