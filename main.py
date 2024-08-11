@@ -5,8 +5,8 @@ from secrets import token_urlsafe
 import os
 # import google.generativeai as genai
 from datetime import datetime
-import vertexai
-from vertexai.generative_models import GenerativeModel, Part
+# import vertexai
+# from vertexai.generative_models import GenerativeModel, Part
 
 
 
@@ -85,43 +85,43 @@ def save_data():
     return 'get <a href="/"><button> Go back </button></a>'
 
 
-@app.route('/gemini')
-def gemini():
-    return render_template('gemini.html')
+# @app.route('/gemini')
+# def gemini():
+#     return render_template('gemini.html')
 
 
 
 
 
-def generates_text(prompt):
-    project_id = "affable-hall-427403-u5"   
-    try:
-        vertexai.init(project=project_id, location="us-central1")
+# def generates_text(prompt):
+#     project_id = "affable-hall-427403-u5"   
+#     try:
+#         vertexai.init(project=project_id, location="us-central1")
 
-        model = GenerativeModel("gemini-1.5-flash")
+#         model = GenerativeModel("gemini-1.5-flash")
 
 
-        response = model.generate_content(prompt)
-        return response.text.replace('**', '')
+#         response = model.generate_content(prompt)
+#         return response.text.replace('**', '')
         
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return "Error generating text"
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         return "Error generating text"
 
-@app.route('/chat',methods=['POST','GET'])
-def chat():
-    if request.method == 'POST':
-        try:
-            prompt= request.form['prompt']
-            # text= generate_text(a).replace('*', '')
-            # prompt = request.json['prompt']
-            generated_text = generates_text(prompt)
+# @app.route('/chat',methods=['POST','GET'])
+# def chat():
+#     if request.method == 'POST':
+#         try:
+#             prompt= request.form['prompt']
+#             # text= generate_text(a).replace('*', '')
+#             # prompt = request.json['prompt']
+#             generated_text = generates_text(prompt)
 
-            return render_template('gemini.html', use=generated_text.replace('##',''))
-        except  Exception as e:
-            return render_template('gemini.html', use=e)
+#             return render_template('gemini.html', use=generated_text.replace('##',''))
+#         except  Exception as e:
+#             return render_template('gemini.html', use=e)
             
-    return redirect(url_for('gemini'))
+#     return redirect(url_for('gemini'))
 
 
 
