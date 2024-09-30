@@ -365,7 +365,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
           justify-content: center;
           align-items: center;
           padding: 2% 2%;
-          height:auto;
+          height:98vh;
         }
         .btnn{
           height: 60px  ;
@@ -413,9 +413,11 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
         font-size: 20px;
       }
 
-    @media (max-width: 768px) {
+    @media (width: 768px) {
       
-      
+      .content{
+        padding: 0;
+      }
       ul {
         width: 50%;
         flex-wrap: wrap;
@@ -426,6 +428,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
     footer{
         display: flex;
         flex-direction: column;
+
     }
     footer p{
         text-align: center;
@@ -601,7 +604,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
 </head>
 {% endblock %}
 {% block content %}
-
+  
 
   <div class="alert alert-success message" role="alert"></div>
   
@@ -651,7 +654,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
   <form class="p-form" action="/notes" method="POST" >
     
     <div class="input-group">
-      <input required="hi" type="text"  name="password" class="input">
+      <input required="hi" type="password" autocomplete="off"  name="password" class="input">
         <label class="user-label">Type some code to save..</label>
     </div>
     <button class="btnn" type="submit" >
