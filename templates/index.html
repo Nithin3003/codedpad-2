@@ -413,7 +413,7 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
         font-size: 20px;
       }
 
-    @media (width: 768px) {
+    @media (max-width: 768px) {
       
       .content{
         padding: 0;
@@ -442,7 +442,10 @@ background: linear-gradient(81deg, rgba(191,240,152,0.577468487394958) 0%, rgba(
   padding: 10px;
 }
 @media (max-width: 580px) {
-  
+    .content{
+      height:fit-content;
+      width:fit-content;
+    }
       /* Navbar */
       .laptop {
         display: none;
