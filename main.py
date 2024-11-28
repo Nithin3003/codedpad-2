@@ -13,7 +13,7 @@ from datetime import datetime
 
 app= Flask(__name__) 
 
-os.environ["url"] = "mongodb+srv://msnithin84:Nithin@cluster0.wob2cfi.mongodb.net/coded"
+os.environ["url"] = '#api key'
 
 app.config['MONGO_URI'] = os.environ.get('url')
 app.config['SECRET_KEY'] = token_urlsafe(32)
